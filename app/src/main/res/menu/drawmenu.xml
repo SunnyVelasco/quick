@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/Agregar_servicio" android:title="Agregar Contactos" android:icon="@drawable/agregar"></item>
+    <item android:id="@+id/Contactos_guardados" android:title="Contactos Guardados" android:icon="@drawable/agregar"></item>
+    <item android:id="@+id/Cerrar_sesion" android:title="Cerrar Sesión" android:icon="@drawable/sesion"></item>
+
+</menu>

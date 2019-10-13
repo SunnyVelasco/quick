@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/txt_contra"
+        android:layout_width="287dp"
+        android:layout_height="59dp"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/imageView14"
+        android:backgroundTint="#FFFFFF"
+        android:ems="10"
+        android:hint="Escribe tu contraseña"
+        android:inputType="textPassword"
+        android:textColor="#FFFFFF"
+        android:textColorHint="@android:color/darker_gray"
+        android:textStyle="italic"
+        android:visibility="visible" />
+
+    <EditText
+        android:id="@+id/txt_usuario"
+        android:layout_width="286dp"
+        android:layout_height="wrap_content"
+
+        android:layout_alignStart="@+id/txt_contra"
+        android:layout_below="@+id/imageView12"
+        android:backgroundTint="#FFFFFF"
+        android:ems="10"
+        android:hint="Escribe tu usuario"
+        android:inputType="textPersonName"
+        android:textColor="#FFFFFF"
+        android:textColorHint="@android:color/darker_gray"
+        android:textStyle="italic"
+        android:visibility="visible" />
+
+    <Button
+        android:id="@+id/btn_iniciarS"
+        android:layout_width="296dp"
+        android:layout_height="49dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="136dp"
+        android:background="#47525E"
+        android:text="@string/iniciar_sesi_n"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btn_crearC"
+        android:layout_width="294dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="34dp"
+        android:background="#47525E"
+        android:text="@string/crear_cuenta"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="98dp"
+        android:text="@string/a_n_no_tienes_cuenta_reg_strate"
+        android:textColor="#FFFFFF"
+        android:textColorLink="@android:color/background_light"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/imageView14"
+        android:layout_width="62dp"
+        android:layout_height="45dp"
+        android:layout_alignStart="@+id/imageView15"
+        android:layout_alignTop="@+id/txt_usuario"
+        app:srcCompat="@drawable/usuario" />
+
+    <ImageView
+        android:id="@+id/imageView15"
+        android:layout_width="56dp"
+        android:layout_height="44dp"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="20dp"
+        app:srcCompat="@drawable/key" />
+
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="match_parent"
+        android:layout_height="188dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        app:srcCompat="@drawable/quickblanco" />
+
+    <RadioButton
+        android:id="@+id/Rd_Sesion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_contra"
+        android:layout_centerHorizontal="true"
+        android:buttonTint="@color/ColorText"
+        android:text="No cerrar sesión"
+        android:textSize="20dp"
+        android:textColor="#fff"
+        android:textStyle="bold|italic" />
+</RelativeLayout>

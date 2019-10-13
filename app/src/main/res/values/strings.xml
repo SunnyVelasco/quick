@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Quick</string>
+    <string name="escribe_tu_contrase_a">Escribe tu contraseña</string>
+    <string name="escribe_tu_usuario">Escribe tu usuario</string>
+    <string name="iniciar_sesi_n">INICIAR SESIÓN</string>
+    <string name="crear_cuenta">CREAR CUENTA</string>
+    <string name="a_n_no_tienes_cuenta_reg_strate">¿Aún no tienes cuenta? ¡Regístrate!</string>
+    <string name="todo">TODO</string>
+    <string name="usuario">usuario</string>
+    <string name="quick">quick</string>
+    <string name="Open">Open</string>
+    <string name="Close">Close</string>
+    <string name="title_activity_ejem">ejem</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_activity_agregados_contactos">AgregadosContactos</string>
+
+</resources>
