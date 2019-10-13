@@ -193,7 +193,7 @@
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/btn_google"
             android:layout_width="63dp"
             android:layout_height="60dp"
             android:layout_alignParentEnd="true"
@@ -203,7 +203,7 @@
             android:background="@drawable/google" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/btn_fb"
             android:layout_width="63dp"
             android:layout_height="60dp"
             android:layout_alignParentEnd="true"
@@ -213,7 +213,7 @@
             android:background="@drawable/facebook" />
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/btn_ig"
             android:layout_width="63dp"
             android:layout_height="60dp"
             android:layout_alignParentEnd="true"
