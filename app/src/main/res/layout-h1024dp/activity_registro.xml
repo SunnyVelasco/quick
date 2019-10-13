@@ -30,8 +30,8 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="313dp"
+        android:layout_height="208dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
@@ -42,6 +42,7 @@
         android:layout_marginBottom="27dp"
         app:layout_constraintBottom_toTopOf="@+id/txt_UsuarioC"
         app:layout_constraintEnd_toEndOf="@+id/txt_UsuarioC"
+        app:layout_constraintHorizontal_bias="0.522"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/app" />
@@ -81,6 +82,7 @@
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/txt_TelUser"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_UsuarioC" />
 
@@ -120,6 +122,7 @@
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/btn_cuenta"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_codP" />
 
@@ -129,10 +132,11 @@
         android:layout_height="47dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="150dp"
+        android:layout_marginBottom="232dp"
         android:background="@drawable/registrar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_pass" />
 </android.support.constraint.ConstraintLayout>

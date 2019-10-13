@@ -39,6 +39,7 @@
         android:layout_marginBottom="11dp"
         app:layout_constraintBottom_toTopOf="@+id/txt_UsuarioC"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/app"
@@ -128,8 +129,8 @@
 
     <Button
         android:id="@+id/btn_cuenta"
-        android:layout_width="34dp"
-        android:layout_height="10dp"
+        android:layout_width="36dp"
+        android:layout_height="8dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="7dp"
