@@ -46,22 +46,28 @@
         android:id="@+id/Iniciar_sesión"
         android:layout_width="239dp"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
+        android:layout_marginStart="91dp"
         android:layout_marginEnd="81dp"
         android:layout_marginBottom="102dp"
         android:background="@drawable/boton_estilo"
         android:text="INICIAR SESIÓN "
-        android:textColor="@color/colorPrimary" />
+        android:textColor="@color/colorPrimary"
+        android:textSize="20dp" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="239dp"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
+        android:layout_marginStart="91dp"
         android:layout_marginEnd="81dp"
         android:layout_marginBottom="30dp"
         android:background="@drawable/boton_estilo"
-        android:text="Registrarse" />
+        android:text="Registrarse"
+        android:textSize="20dp" />
 </RelativeLayout>
