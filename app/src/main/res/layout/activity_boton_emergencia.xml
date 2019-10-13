@@ -27,12 +27,14 @@
 
         <ImageView
             android:id="@+id/imageView16"
-            android:layout_width="379dp"
-            android:layout_height="204dp"
+            android:layout_width="390dp"
+            android:layout_height="206dp"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="34dp"
-            app:srcCompat="@drawable/logosinfondo"
-            android:contentDescription="@string/todo" />
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="21dp"
+            android:layout_marginEnd="9dp"
+            android:contentDescription="@string/todo"
+            app:srcCompat="@drawable/quickblanco" />
 
         <Button
             android:id="@+id/btn_ayuda"

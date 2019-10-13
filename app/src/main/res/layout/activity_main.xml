@@ -27,8 +27,10 @@
         android:layout_width="286dp"
         android:layout_height="wrap_content"
 
-        android:layout_alignStart="@+id/txt_contra"
         android:layout_below="@+id/imageView12"
+        android:layout_alignStart="@+id/txt_contra"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="69dp"
         android:backgroundTint="#FFFFFF"
         android:ems="10"
         android:hint="Escribe tu usuario"
@@ -40,13 +42,13 @@
 
     <Button
         android:id="@+id/btn_iniciarS"
-        android:layout_width="296dp"
-        android:layout_height="49dp"
+        android:layout_width="204dp"
+        android:layout_height="56dp"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="136dp"
-        android:background="#47525E"
-        android:text="@string/iniciar_sesi_n"
+        android:layout_marginEnd="22dp"
+        android:layout_marginBottom="214dp"
+        android:background="@drawable/botonlogin"
         android:textColor="#FFFFFF"
         android:textStyle="bold" />
 
@@ -60,19 +62,6 @@
         android:background="#47525E"
         android:text="@string/crear_cuenta"
         android:textColor="#FFFFFF"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="98dp"
-        android:text="@string/a_n_no_tienes_cuenta_reg_strate"
-        android:textColor="#FFFFFF"
-        android:textColorLink="@android:color/background_light"
-        android:textSize="18sp"
         android:textStyle="bold" />
 
     <ImageView
@@ -98,6 +87,8 @@
         android:layout_height="188dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        android:layout_marginStart="111dp"
+        android:layout_marginTop="5dp"
         app:srcCompat="@drawable/quickblanco" />
 
     <RadioButton
@@ -111,4 +102,15 @@
         android:textSize="20dp"
         android:textColor="#fff"
         android:textStyle="bold|italic" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="186dp"
+        android:layout_marginBottom="488dp"
+        android:ems="10"
+        android:inputType="textPersonName" />
 </RelativeLayout>
