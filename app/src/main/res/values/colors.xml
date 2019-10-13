@@ -6,8 +6,8 @@
     <color name="fondo1">#373435</color>
     <color name="fondo2">#293139</color>
     <color name="Menu">#F8F8F8</color>
-    <color name="OpcionesMenu">#FEFEFE</color>
+    <color name="OpcionesMenu">#212121</color>
     <color name="ColorText">#FFFFFF</color>
-    <color name="iconos">#A5A5A5</color>
+    <color name="iconos">#212121</color>
     <color name="negro">#080808</color>
 </resources>
