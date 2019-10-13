@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".bienvenida"
-    android:background="@color/fondo2">
+    android:background="@color/fondo2"
+    tools:context=".bienvenida">
 
     <TextView
         android:id="@+id/textView2"
@@ -28,7 +28,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="38dp"
         android:layout_marginBottom="212dp"
-        app:srcCompat="@drawable/personas" />
+        android:background="@drawable/personas" />
 
     <TextView
         android:id="@+id/textView3"
