@@ -48,11 +48,12 @@
         android:id="@+id/btn_cuenta"
         android:layout_width="143dp"
         android:layout_height="27dp"
-        android:layout_marginBottom="176dp"
+        android:layout_marginBottom="156dp"
         android:background="@drawable/registrar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
 
     <EditText
         android:id="@+id/txt_pass"
