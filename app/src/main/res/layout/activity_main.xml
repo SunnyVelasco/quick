@@ -27,10 +27,11 @@
         android:layout_width="286dp"
         android:layout_height="wrap_content"
 
-        android:layout_below="@+id/imageView12"
+        android:layout_above="@+id/txt_contra"
         android:layout_alignStart="@+id/txt_contra"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="69dp"
+        android:layout_marginStart="-6dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginBottom="19dp"
         android:backgroundTint="#FFFFFF"
         android:ems="10"
         android:hint="Escribe tu usuario"
@@ -44,10 +45,10 @@
         android:id="@+id/btn_iniciarS"
         android:layout_width="204dp"
         android:layout_height="56dp"
+        android:layout_above="@+id/btn_crearC"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="22dp"
-        android:layout_marginBottom="214dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="35dp"
         android:background="@drawable/botonlogin"
         android:textColor="#FFFFFF"
         android:textStyle="bold" />
@@ -68,8 +69,10 @@
         android:id="@+id/imageView14"
         android:layout_width="62dp"
         android:layout_height="45dp"
-        android:layout_alignStart="@+id/imageView15"
         android:layout_alignTop="@+id/txt_usuario"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="-3dp"
         app:srcCompat="@drawable/usuario" />
 
     <ImageView
@@ -83,34 +86,32 @@
 
     <ImageView
         android:id="@+id/imageView12"
-        android:layout_width="match_parent"
-        android:layout_height="188dp"
+        android:layout_width="350dp"
+        android:layout_height="238dp"
+        android:layout_above="@+id/txt_usuario"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="111dp"
-        android:layout_marginTop="5dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="38dp"
+        android:layout_marginBottom="7dp"
         app:srcCompat="@drawable/quickblanco" />
 
     <RadioButton
         android:id="@+id/Rd_Sesion"
-        android:layout_width="wrap_content"
+        android:layout_width="230dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/txt_contra"
-        android:layout_centerHorizontal="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="94dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="87dp"
         android:buttonTint="@color/ColorText"
         android:text="No cerrar sesión"
-        android:textSize="20dp"
         android:textColor="#fff"
+        android:textSize="20dp"
         android:textStyle="bold|italic" />
 
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="186dp"
-        android:layout_marginBottom="488dp"
-        android:ems="10"
-        android:inputType="textPersonName" />
 </RelativeLayout>
