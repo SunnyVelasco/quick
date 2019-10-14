@@ -136,7 +136,7 @@ public class AgregadosContactos extends AppCompatActivity {
 
         //dialogo para modificar
         new AlertDialog.Builder(this)
-                .setTitle("Desea la eliminacion del registro")
+                .setTitle("Deseas Eliminar El Contacto")
                 .setView(vistaEliminar)
                 .setPositiveButton("Eliminar", new DialogInterface.OnClickListener() {
                     @Override
