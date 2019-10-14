@@ -5,7 +5,7 @@
     android:id="@+id/drawer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/fondo1"
+    android:background="@drawable/fondopl"
     tools:context=".boton_emergencia">
         <android.support.design.widget.NavigationView
             android:id="@+id/nav_viewN"
@@ -29,24 +29,24 @@
             android:id="@+id/imageView16"
             android:layout_width="812dp"
             android:layout_height="465dp"
+            android:layout_above="@+id/btn_ayuda"
             android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="176dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginStart="147dp"
+            android:layout_marginBottom="187dp"
             android:contentDescription="@string/todo"
             app:srcCompat="@drawable/quickblanco" />
 
         <Button
             android:id="@+id/btn_ayuda"
-            android:layout_width="762dp"
-            android:layout_height="493dp"
+            android:layout_width="430dp"
+            android:layout_height="319dp"
 
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="203dp"
-            android:layout_marginEnd="187dp"
-            android:layout_marginBottom="330dp"
+            android:layout_marginStart="347dp"
+            android:layout_marginEnd="375dp"
+            android:layout_marginBottom="77dp"
             android:background="@drawable/boton2n"
             android:textColor="@android:color/background_light"
             android:textSize="50sp"

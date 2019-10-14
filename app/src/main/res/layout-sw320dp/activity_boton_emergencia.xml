@@ -5,7 +5,7 @@
     android:id="@+id/drawer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/fondo1"
+    android:background="@drawable/fondopl"
     tools:context=".boton_emergencia">
         <android.support.design.widget.NavigationView
             android:id="@+id/nav_viewN"
@@ -27,26 +27,26 @@
 
         <ImageView
             android:id="@+id/imageView16"
-            android:layout_width="367dp"
-            android:layout_height="212dp"
+            android:layout_width="390dp"
+            android:layout_height="206dp"
+            android:layout_above="@+id/btn_ayuda"
             android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="18dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginBottom="41dp"
             android:contentDescription="@string/todo"
             app:srcCompat="@drawable/quickblanco" />
 
         <Button
             android:id="@+id/btn_ayuda"
-            android:layout_width="300dp"
-            android:layout_height="205dp"
+            android:layout_width="169dp"
+            android:layout_height="117dp"
 
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="50dp"
-            android:layout_marginEnd="61dp"
-            android:layout_marginBottom="120dp"
+            android:layout_marginStart="116dp"
+            android:layout_marginEnd="127dp"
+            android:layout_marginBottom="46dp"
             android:background="@drawable/boton2n"
             android:textColor="@android:color/background_light"
             android:textSize="50sp"
