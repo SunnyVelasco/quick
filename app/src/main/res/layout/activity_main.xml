@@ -59,18 +59,6 @@
         android:textColor="#FFFFFF"
         android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/btn_crearC"
-        android:layout_width="294dp"
-        android:layout_height="50dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="34dp"
-        android:background="#47525E"
-        android:text="@string/crear_cuenta"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold" />
-
     <ImageView
         android:id="@+id/imageView14"
         android:layout_width="62dp"

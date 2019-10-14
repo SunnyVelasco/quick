@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
         db= new BaseDatos(MainActivity.this);
         Iniciar=(Button)findViewById(R.id.btn_iniciarS);
-        CrearC=(Button)findViewById(R.id.btn_crearC);
+       // CrearC=(Button)findViewById(R.id.btn_crearC);
 
         Usuario_Login=(EditText)findViewById(R.id.txt_usuario);
         Password_Login=(EditText)findViewById(R.id.txt_contra);
@@ -67,14 +67,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        CrearC.setOnClickListener(new View.OnClickListener() {
+     /*   CrearC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent CrearC= new Intent(MainActivity.this, registro.class);
                 startActivity(CrearC);
                // finish(); //aqui*****
             }
-        });
+        }); */
 
     }
 
@@ -129,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
                             Contenedor.getString(Contenedor.getColumnIndex("password"))));
                     Intent Iniciar = new Intent(MainActivity.this, boton_emergencia.class);
                     startActivity(Iniciar);
-                    finish();
+                   // finish();
                 }
                 else
                 {

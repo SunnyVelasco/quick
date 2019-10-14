@@ -154,7 +154,7 @@ public class boton_emergencia extends AppCompatActivity {
 
         if(id == R.id.Cerrar_sesion){
             MainActivity.CerrarSesionMenu(boton_emergencia.this,false);
-            Intent i = new Intent(boton_emergencia.this, MainActivity.class);
+            Intent i = new Intent(boton_emergencia.this, bienvenida.class);
             startActivity(i);
             finish();
         }
