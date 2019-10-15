@@ -10,7 +10,7 @@
         <android.support.design.widget.NavigationView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            app:itemTextColor="@color/ColorText"
+            app:itemTextColor="@color/OpcionesMenu"
             app:itemIconTint="@color/iconos"
             android:background="@color/Menu"
             app:menu="@menu/drawmenu"
