@@ -6,7 +6,7 @@
 
     <item android:title="Opciones">
         <menu>
-            <item android:id="@+id/Agregar_servicio" android:title="CONTACTOS" android:icon="@drawable/contactos"></item>
+            <item android:id="@+id/Agregar_servicio" android:title="CONTACTOS" android:icon="@drawable/contactos" ></item>
             <item android:id="@+id/Contactos_guardados" android:title="PERFIL" android:icon="@drawable/ajuste"></item>
             <item android:id="@+id/Acerca_de" android:title="ACERCA DE QUICK" android:icon="@drawable/info"></item>
             <item android:id="@+id/Cerrar_sesion" android:title="CERRAR SESIÓN" android:icon="@drawable/logout"></item>
