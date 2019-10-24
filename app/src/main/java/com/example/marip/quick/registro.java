@@ -20,6 +20,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -144,7 +145,15 @@ public class registro extends AppCompatActivity {
                     Toast.makeText(registro.this, "Se ha registrado el usuario con exito", Toast.LENGTH_LONG).show();
                 } else {
 
-                    Toast.makeText(registro.this, "No se ha podido registrar el usuario", Toast.LENGTH_LONG).show();
+                    if (task.getException() instanceof FirebaseAuthUserCollisionException)
+                    {
+                        Toast.makeText(registro.this, "ese usuario ya esta registrado", Toast.LENGTH_LONG).show();
+                    }
+                    else {
+                        Toast.makeText(registro.this, "No se ha podido registrar el usuario", Toast.LENGTH_LONG).show();
+                    }
+
+
                 }
 
                 progressDialog.dismiss();

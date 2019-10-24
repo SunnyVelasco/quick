@@ -107,7 +107,7 @@ public class boton_emergencia extends AppCompatActivity {
 
     public void EnviarMensaje(String numTel) {
         //String numTel = txtNum.getText().toString();
-        String direccion="https://maps.app.goo.gl/u1Hx4242QEyEtqCy9";
+        String direccion="";
 
 
         try {
