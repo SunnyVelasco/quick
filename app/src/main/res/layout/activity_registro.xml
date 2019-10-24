@@ -171,7 +171,8 @@
         android:id="@+id/relativeLayout3"
         android:layout_width="323dp"
         android:layout_height="0dp"
-        android:layout_marginEnd="40dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginRight="44dp"
         android:layout_marginBottom="36dp"
         android:background="@drawable/boton_estilo"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -179,47 +180,67 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView3">
 
 
+     >
+
+
         <TextView
             android:id="@+id/textView4"
             android:layout_width="250dp"
             android:layout_height="35dp"
             android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginEnd="38dp"
-            android:layout_marginBottom="79dp"
+            android:layout_marginEnd="46dp"
+            android:layout_marginRight="46dp"
+            android:layout_marginBottom="81dp"
             android:gravity="center"
             android:text="Registrate a través de"
             android:textColor="#E53935"
             android:textStyle="bold" />
 
+
+        <com.facebook.login.widget.LoginButton
+            android:id="@+id/loginButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp" />
+
+
+
         <Button
             android:id="@+id/btn_google"
             android:layout_width="63dp"
             android:layout_height="60dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginEnd="137dp"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/google" />
 
-        <Button
-            android:id="@+id/btn_fb"
-            android:layout_width="63dp"
-            android:layout_height="60dp"
-            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginEnd="222dp"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/facebook" />
+            android:layout_marginStart="125dp"
+            android:layout_marginLeft="125dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="260dp"
+            android:layout_marginRight="135dp"
+            android:layout_marginBottom="22dp"
+            android:background="@drawable/google" />
 
         <Button
             android:id="@+id/btn_ig"
             android:layout_width="63dp"
             android:layout_height="60dp"
+
             android:layout_alignParentEnd="true"
+
+            android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginEnd="46dp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginEnd="45dp"
+            android:layout_marginRight="45dp"
+            android:layout_marginBottom="18dp"
             android:background="@drawable/instagram" />
 
     </RelativeLayout>

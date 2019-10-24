@@ -58,13 +58,21 @@ public class registro extends AppCompatActivity {
         setContentView(R.layout.activity_registro);
 
         //inicializamos el objeto firebaseAuth
-
+        CrearC = (Button) findViewById(R.id.btn_cuenta);
         firebaseAuth = FirebaseAuth.getInstance();
+
+        CrearC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                registrarUsuario();
+            }
+        });
+
 
 
         // (this);
 
-        CrearC = (Button) findViewById(R.id.btn_cuenta);
+
         Usuario = (EditText) findViewById(R.id.txt_UsuarioC);
         Correo = (EditText) findViewById(R.id.txt_Correo2);
         Cp = (EditText) findViewById(R.id.txt_codP);
@@ -143,28 +151,7 @@ public class registro extends AppCompatActivity {
             }
         });
 
-    CrearC.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            registrarUsuario();
-        }
-    });
 
     }
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 

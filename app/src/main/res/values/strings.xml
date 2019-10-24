@@ -19,6 +19,9 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_main2">Main2Activity</string>
     <string name="title_activity_agregados_contactos">AgregadosContactos</string>
+    <string name="facebook_app_id">411054399537230</string>
+    <string name="fb_login_protocol_scheme">fb411054399537230</string>
+
 
 
 </resources>

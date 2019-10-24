@@ -205,7 +205,7 @@
             android:background="@drawable/google" />
 
         <Button
-            android:id="@+id/btn_fb"
+            android:id="@+id/login_button"
             android:layout_width="63dp"
             android:layout_height="60dp"
             android:layout_alignParentEnd="true"
