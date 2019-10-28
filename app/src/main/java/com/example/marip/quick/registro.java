@@ -21,6 +21,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -38,6 +40,8 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 
 
+
+
 public class registro extends AppCompatActivity {
     Button CrearC;
     EditText Usuario, Correo, Cp, Password, Telefono;
@@ -50,6 +54,9 @@ public class registro extends AppCompatActivity {
     private ProgressDialog progressDialog;
 
     //Firebase
+
+    private DatabaseReference usuariobd;
+
 
     private FirebaseAuth firebaseAuth;
 
@@ -66,9 +73,9 @@ public class registro extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 registrarUsuario();
+                registrarUsuariosDB();
             }
         });
-
 
 
         // (this);
@@ -82,6 +89,12 @@ public class registro extends AppCompatActivity {
         findViewById(R.id.txt_UsuarioC).requestFocus();
         db = new BaseDatos(registro.this);
         db2 = new AyudaBD(this).getWritableDatabase();
+
+        //Base de datos
+
+
+        usuariobd = FirebaseDatabase.getInstance().getReference("usuariobd");
+
 
         //final EditText texto_nombre = findViewById(R.id.txt_UsuarioC);
         //final EditText texto_telefono = findViewById(R.id.txt_TelUser);
@@ -162,5 +175,27 @@ public class registro extends AppCompatActivity {
 
 
     }
-}
 
+    public void registrarUsuariosDB() {
+
+        String usuario = Usuario.getText().toString();
+        String correo  = Correo.getText().toString();
+        String cp = Cp.getText().toString();
+        String numTel = Telefono.getText().toString();
+        String pass  = Password.getText().toString();
+
+
+        if (!TextUtils.isEmpty(usuario)){
+
+            String id = usuariobd.push().getKey();
+            usuariobd datos = new usuariobd(id,usuario, correo, cp, numTel, pass);
+            usuariobd.child("Datos").child(id).setValue(datos);
+            Toast.makeText(this, "Usuario registrado", Toast.LENGTH_SHORT).show();
+
+        }else {
+            Toast.makeText(this, "Verifique los datos", Toast.LENGTH_SHORT).show();
+
+
+        }
+    }
+}
