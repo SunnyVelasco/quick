@@ -1,16 +1,26 @@
 package com.example.marip.quick;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -21,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
     EditText Usuario_Login, Password_Login;
     RadioButton Rd_Sesion;
     private boolean EstaActivado;
+    private ProgressDialog progressDialog;
+    private FirebaseAuth firebaseAuth;
     private static final String STRING_PREFERENCES = "Quick";
     private static final String PREFERENCE_ESTADO_BUTTON_SESION = "estado.button.sesion";
     List<HashMap<String,String>> DatosUsuario= new ArrayList<>();//Lista Mapeada por 2 variables(Nombre de la variable, Dato)
@@ -30,17 +42,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         findViewById(R.id.txt_usuario).requestFocus();
-
+        firebaseAuth = FirebaseAuth.getInstance();
         if(ObtenerEstado()){
             Intent Iniciar = new Intent(MainActivity.this, boton_emergencia.class);
             startActivity(Iniciar);
-
-
         }
 
         db= new BaseDatos(MainActivity.this);
         Iniciar=(Button)findViewById(R.id.btn_iniciarS);
-       // CrearC=(Button)findViewById(R.id.btn_crearC);
+       //CrearC=(Button)findViewById(R.id.btn_crearC);
 
         Usuario_Login=(EditText)findViewById(R.id.txt_usuario);
         Password_Login=(EditText)findViewById(R.id.txt_contra);
@@ -75,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
                // finish(); //aqui*****
             }
         }); */
-
+        progressDialog = new ProgressDialog(this);
     }
 
 
@@ -105,44 +115,61 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void Login() {
-        guardarEstadoSesion();
-        try {
-            String user, pass;
-            user = Usuario_Login.getText().toString();
-            pass = Password_Login.getText().toString();
-            if (user.isEmpty() || pass.isEmpty()) {
-                Toast.makeText(this, "Los campos no pueden estar vacios", Toast.LENGTH_SHORT).show();
-            } else {
-               boolean isCorrect = db.consul_usuario(Usuario_Login.getText().toString(), Password_Login.getText().toString());
-                boolean isCorrect2 = db.consul_usuario(Usuario_Login.getText().toString(), Password_Login.getText().toString());
 
-             //   boolean isCorrect2 = db.consul_usuario2(Usuario_Login.getText().toString());
-              //  boolean isCorrect3 = db.consul_usuario3(Password_Login.getText().toString());
+        String pass = Password_Login.getText().toString().trim();
+        String correo = Usuario_Login.getText().toString().trim();
 
-                if (isCorrect2) {
-                    Contenedor = db.consul_usuario(user);
-                    Contenedor.moveToFirst();
-                    DatosUsuario.add(datos(Contenedor.getString(Contenedor.getColumnIndex("_id")),
-                            Contenedor.getString(Contenedor.getColumnIndex("usuario")),
-                            Contenedor.getString(Contenedor.getColumnIndex("correo")),
-                            Contenedor.getString(Contenedor.getColumnIndex("cp")),
-                            Contenedor.getString(Contenedor.getColumnIndex("password"))));
-                    Intent Iniciar = new Intent(MainActivity.this, boton_emergencia.class);
-                    startActivity(Iniciar);
-                   // finish();
-                }
-                else
-                {
-                    Toast.makeText(this, "error de datos", Toast.LENGTH_SHORT).show();
-                }
+        //Verificar cajas de texto
 
-            }
-        }catch (Exception e){
-            e.printStackTrace();
-            Toast.makeText(this, "Datos incorrectos", Toast.LENGTH_SHORT).show();
 
+        if (TextUtils.isEmpty(correo)) {
+
+            Toast.makeText(this, "Se debe ingresar un correo", Toast.LENGTH_LONG).show();
+            return;
         }
+
+
+        if (TextUtils.isEmpty(pass)) {
+
+            Toast.makeText(this, "Se debe ingresar una Contraseña", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+
+        progressDialog.setMessage("Cargando...");
+        progressDialog.show();
+
+        firebaseAuth.signInWithEmailAndPassword(correo, pass).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+
+                if (task.isSuccessful()) {
+
+                    Intent intencion = new Intent(getApplication(), boton_emergencia.class);
+                   // intencion.putExtra(boton_emergencia.us)
+                    startActivity(intencion);
+
+                    Toast.makeText(MainActivity.this, "Bienvenido", Toast.LENGTH_LONG).show();
+                } else {
+
+                    if (task.getException() instanceof FirebaseAuthUserCollisionException)
+                    {
+                        Toast.makeText(MainActivity.this, "ese usuario ya esta registrado", Toast.LENGTH_LONG).show();
+                    }
+                    else {
+                        Toast.makeText(MainActivity.this, "No se ha podido acceder", Toast.LENGTH_LONG).show();
+                    }
+
+
+                }
+
+                progressDialog.dismiss();
+            }
+        });
+
+
     }
+
 
     private HashMap<String,String> datos(String id,String usuario,String correo, String cp, String password){
         HashMap<String,String> aux = new HashMap<>();

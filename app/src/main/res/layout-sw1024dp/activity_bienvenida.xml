@@ -11,14 +11,14 @@
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="336dp"
-        android:layout_height="290dp"
+        android:layout_width="994dp"
+        android:layout_height="464dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="38dp"
-        android:layout_marginEnd="38dp"
+        android:layout_marginStart="78dp"
+        android:layout_marginEnd="80dp"
         android:layout_marginBottom="204dp"
         android:background="@drawable/personas" />
 
@@ -28,8 +28,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="75dp"
-        android:layout_marginBottom="504dp"
+        android:layout_marginEnd="487dp"
+        android:layout_marginBottom="708dp"
         android:text="Una herramienta para ti y para tu seguridad"
         android:textColor="@color/ColorText"
         android:textStyle="italic" />
@@ -64,12 +64,12 @@
 
     <ImageView
         android:id="@+id/imageView9"
-        android:layout_width="294dp"
-        android:layout_height="304dp"
+        android:layout_width="506dp"
+        android:layout_height="301dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="-2dp"
+        android:layout_marginStart="284dp"
+        android:layout_marginTop="527dp"
         app:srcCompat="@drawable/quickblanco" />
 </RelativeLayout>
