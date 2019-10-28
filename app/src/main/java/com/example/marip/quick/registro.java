@@ -16,13 +16,17 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.auth.api.signin.GoogleSignInResult;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.SignInButton;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -40,9 +44,7 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 
 
-
-
-public class registro extends AppCompatActivity {
+public class registro extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
     Button CrearC;
     EditText Usuario, Correo, Cp, Password, Telefono;
     BaseDatos db;
@@ -55,15 +57,34 @@ public class registro extends AppCompatActivity {
 
     //Firebase
 
-    private DatabaseReference usuariobd;
-
-
     private FirebaseAuth firebaseAuth;
+    private GoogleApiClient googleApiClient;
+    private SignInButton singInButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
+
+        //modif
+
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .build();
+        googleApiClient = new GoogleApiClient.Builder(this)
+                .enableAutoManage(this,this) // un error :C
+                //.addApi(Auth.GOO)
+                  .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
+                .build();
+
+        singInButton = (SignInButton) findViewById(R.id.botonG);
+        singInButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =Auth.GoogleSignInApi.getSignInIntent(googleApiClient);
+                startActivityForResult(intent,777);
+            }
+        });
 
         //inicializamos el objeto firebaseAuth
         CrearC = (Button) findViewById(R.id.btn_cuenta);
@@ -73,9 +94,9 @@ public class registro extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 registrarUsuario();
-                registrarUsuariosDB();
             }
         });
+
 
 
         // (this);
@@ -90,18 +111,15 @@ public class registro extends AppCompatActivity {
         db = new BaseDatos(registro.this);
         db2 = new AyudaBD(this).getWritableDatabase();
 
-        //Base de datos
-
-
-        usuariobd = FirebaseDatabase.getInstance().getReference("usuariobd");
-
-
         //final EditText texto_nombre = findViewById(R.id.txt_UsuarioC);
         //final EditText texto_telefono = findViewById(R.id.txt_TelUser);
         //final EditText texto_email = findViewById(R.id.txt_Correo2);
 
 
         progressDialog = new ProgressDialog(this);
+
+
+
     }
 
 
@@ -176,26 +194,37 @@ public class registro extends AppCompatActivity {
 
     }
 
-    public void registrarUsuariosDB() {
-
-        String usuario = Usuario.getText().toString();
-        String correo  = Correo.getText().toString();
-        String cp = Cp.getText().toString();
-        String numTel = Telefono.getText().toString();
-        String pass  = Password.getText().toString();
 
 
-        if (!TextUtils.isEmpty(usuario)){
-
-            String id = usuariobd.push().getKey();
-            usuariobd datos = new usuariobd(id,usuario, correo, cp, numTel, pass);
-            usuariobd.child("Datos").child(id).setValue(datos);
-            Toast.makeText(this, "Usuario registrado", Toast.LENGTH_SHORT).show();
-
-        }else {
-            Toast.makeText(this, "Verifique los datos", Toast.LENGTH_SHORT).show();
-
-
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        
+        if (requestCode ==777){
+            GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
+            handleSingnInResult(result);
         }
     }
+
+    private void handleSingnInResult(GoogleSignInResult result) {
+        if (result.isSuccess()){
+            goMainScreen();
+        }
+        else {
+            Toast.makeText(this,"no se puede iniciar secion" , Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void goMainScreen() {
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+    }
+
+
+    @Override
+    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+
+    }
 }
+
