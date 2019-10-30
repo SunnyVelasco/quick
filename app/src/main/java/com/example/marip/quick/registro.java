@@ -67,7 +67,7 @@ public class registro extends AppCompatActivity implements GoogleApiClient.OnCon
         setContentView(R.layout.activity_registro);
 
         //modif
-
+/*
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
                 .build();
@@ -84,7 +84,7 @@ public class registro extends AppCompatActivity implements GoogleApiClient.OnCon
                 Intent intent =Auth.GoogleSignInApi.getSignInIntent(googleApiClient);
                 startActivityForResult(intent,777);
             }
-        });
+        }); */
 
         //inicializamos el objeto firebaseAuth
         CrearC = (Button) findViewById(R.id.btn_cuenta);

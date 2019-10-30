@@ -1,75 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/fondo2"
-    tools:context=".bienvenida"
-    >
+    tools:context=".bienvenida">
 
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="336dp"
-        android:layout_height="290dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="38dp"
-        android:layout_marginEnd="38dp"
-        android:layout_marginBottom="204dp"
-        android:background="@drawable/personas" />
+        android:layout_width="331dp"
+        android:layout_height="265dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/personas"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="75dp"
-        android:layout_marginBottom="504dp"
+
+        android:layout_marginTop="112dp"
         android:text="Una herramienta para ti y para tu seguridad"
         android:textColor="@color/ColorText"
-        android:textStyle="italic" />
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/Iniciar_sesión"
         android:layout_width="239dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="91dp"
-        android:layout_marginEnd="81dp"
-        android:layout_marginBottom="102dp"
+        android:layout_height="40dp"
+
+        android:layout_marginTop="32dp"
         android:background="@drawable/boton_estilo"
         android:text="INICIAR SESIÓN "
-        android:textSize="20dp" />
+
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
     <Button
         android:id="@+id/Registrarse"
-        android:layout_width="239dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="91dp"
-        android:layout_marginEnd="81dp"
-        android:layout_marginBottom="30dp"
+        android:layout_width="235dp"
+        android:layout_height="41dp"
+
+        android:layout_marginTop="16dp"
         android:background="@drawable/boton_estilo"
         android:text="Registrarse"
-        android:textSize="20dp" />
+
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Iniciar_sesión" />
 
     <ImageView
         android:id="@+id/imageView9"
-        android:layout_width="294dp"
-        android:layout_height="304dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="-2dp"
+        android:layout_width="337dp"
+        android:layout_height="137dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/quickblanco" />
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>
+</ScrollView>

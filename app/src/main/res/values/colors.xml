@@ -10,4 +10,7 @@
     <color name="ColorText">#FFFFFF</color>
     <color name="iconos">#212121</color>
     <color name="negro">#080808</color>
+    <color name="gris">#D7979494</color>
+    <color name="rojo">#D7E00101</color>
+    <color name="verde">#4DD852</color>
 </resources>
