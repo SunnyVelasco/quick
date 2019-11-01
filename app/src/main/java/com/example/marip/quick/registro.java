@@ -90,6 +90,7 @@ public class registro extends AppCompatActivity {
         db = new BaseDatos(registro.this);
         db2 = new AyudaBD(this).getWritableDatabase();
 
+
         //Base de datos
 
 
@@ -112,7 +113,7 @@ public class registro extends AppCompatActivity {
         String correo = Correo.getText().toString().trim();
         String cp = Cp.getText().toString().trim();
         String pass = Password.getText().toString().trim();
-        String tel = Password.getText().toString().trim();
+        String numTel = Password.getText().toString().trim();
 
         //Verificar cajas de texto
 
@@ -135,12 +136,20 @@ public class registro extends AppCompatActivity {
             return;
         }
 
-        if (TextUtils.isEmpty(pass)) {
+
+
+        if (TextUtils.isEmpty(pass ) || pass.length()<=6) {
 
             Toast.makeText(this, "Se debe ingresar una Contraseña", Toast.LENGTH_LONG).show();
             return;
         }
-        if (TextUtils.isEmpty(tel)) {
+
+
+
+
+
+
+        if (TextUtils.isEmpty(numTel)) {
 
             Toast.makeText(this, "Se debe ingresar un Telefono", Toast.LENGTH_LONG).show();
             return;
@@ -197,7 +206,31 @@ public class registro extends AppCompatActivity {
 
 
         }
+
+        if (TextUtils.isEmpty(correo)) {
+
+            Toast.makeText(this, "Se debe ingresar un correo", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        if (TextUtils.isEmpty(cp)) {
+
+            Toast.makeText(this, "Se debe ingresar un Codigo Postal", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        if (TextUtils.isEmpty(pass ) || pass.length()<=6) {
+
+            Toast.makeText(this, "Se debe ingresar una Contraseña de 7 CARACTERES", Toast.LENGTH_LONG).show();
+            return;
+        }
+        if (TextUtils.isEmpty(numTel)) {
+
+            Toast.makeText(this, "Se debe ingresar un Telefono", Toast.LENGTH_LONG).show();
+            return;
+        }
     }
+
 }
 
 
