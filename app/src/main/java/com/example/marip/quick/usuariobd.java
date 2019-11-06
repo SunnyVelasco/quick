@@ -1,14 +1,15 @@
 package com.example.marip.quick;
 
 public class usuariobd {
-    String usuarioid, usuario, correo, cp, numTel, password;
-    public usuariobd(String usuarioid, String usuario ,String correo, String cp, String numTel, String password) {
+    String usuarioid, usuario, correo, cp, numTel, password, tipo;
+    public usuariobd(String usuarioid, String usuario ,String correo, String cp, String numTel, String password, String tipo) {
         this.usuario = usuario;
         this.usuarioid = usuarioid;
         this.correo = correo;
         this.cp = cp;
         this.numTel = numTel;
         this.password = password;
+        this.tipo = tipo;
     }
 
 
@@ -35,4 +36,6 @@ public class usuariobd {
     public String getPassword() {
         return password;
     }
+
+    public String getTipo(){ return tipo;}
 }

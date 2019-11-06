@@ -14,6 +14,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -45,7 +47,10 @@ import java.nio.charset.StandardCharsets;
 public class registro extends AppCompatActivity {
     Button CrearC;
     EditText Usuario, Correo, Cp, Password, Telefono;
+    RadioGroup mGenero;
+    RadioButton genero;
     BaseDatos db;
+    String tipo;
     private AyudaBD helper;
     private SQLiteDatabase x;
     private Cursor cursor;
@@ -89,6 +94,30 @@ public class registro extends AppCompatActivity {
         findViewById(R.id.txt_UsuarioC).requestFocus();
         db = new BaseDatos(registro.this);
         db2 = new AyudaBD(this).getWritableDatabase();
+        mGenero= (RadioGroup) findViewById(R.id.rd_genero);
+
+        //Obtener genero para FIREBASE
+
+        mGenero.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int i) {
+                genero = mGenero.findViewById(i);
+
+                switch (i){
+                    case R.id.rd_hombre:
+                        tipo = genero.getText().toString();
+                        break;
+
+                    case R.id.rd_mujer:
+                        tipo = genero.getText().toString();
+                        break;
+
+                        default:
+
+                }
+            }
+        });
+
 
 
         //Base de datos
@@ -197,7 +226,7 @@ public class registro extends AppCompatActivity {
         if (!TextUtils.isEmpty(usuario)){
 
             String id = usuariobd.push().getKey();
-            usuariobd datos = new usuariobd(id,usuario, correo, cp, numTel, pass);
+            usuariobd datos = new usuariobd(id,usuario, correo, cp, numTel, pass,tipo);
             usuariobd.child("Datos").child(id).setValue(datos);
             Toast.makeText(this, "Usuario registrado", Toast.LENGTH_SHORT).show();
 
@@ -227,6 +256,12 @@ public class registro extends AppCompatActivity {
         if (TextUtils.isEmpty(numTel)) {
 
             Toast.makeText(this, "Se debe ingresar un Telefono", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        if(TextUtils.isEmpty(tipo)){
+
+            Toast.makeText(this, "Debe seleccionar un genero", Toast.LENGTH_LONG).show();
             return;
         }
     }

@@ -108,13 +108,15 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
-        android:background="@drawable/botonlogin"
+        android:background="@drawable/boton_rojo"
+        android:drawableStart="@drawable/candado"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.56"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Rd_Sesion" />
+        app:layout_constraintTop_toBottomOf="@+id/Rd_Sesion"
+        tools:text="LOGIN" />
 
     <ImageView
         android:id="@+id/imageView12"
