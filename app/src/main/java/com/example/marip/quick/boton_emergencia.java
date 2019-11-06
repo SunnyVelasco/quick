@@ -142,7 +142,7 @@ public class boton_emergencia extends AppCompatActivity {
         }
         int id = item.getItemId();
         if (id == R.id.Agregar_servicio){
-            Intent a = new Intent(boton_emergencia.this,contactos.class);
+            Intent a = new Intent(boton_emergencia.this,PasarContactos.class);
             startActivity(a);
            // finish(); //aqui*****
         }
