@@ -23,7 +23,6 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-
             app:srcCompat="@drawable/quickblanco" />
 
         <RelativeLayout
@@ -36,7 +35,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-
             >
 
             <EditText
@@ -76,7 +74,13 @@
                 android:inputType="textEmailAddress"
                 android:textColor="@color/colorPrimary"
                 android:textColorHighlight="@color/colorPrimary"
-                android:textColorHint="@color/gris" />
+                android:textColorHint="@color/gris"
+
+                android:cursorVisible="true"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:singleLine="true"
+                />
 
             <EditText
 
