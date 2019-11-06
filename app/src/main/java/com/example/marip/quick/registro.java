@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -40,8 +41,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
-
-
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 public class registro extends AppCompatActivity {
@@ -57,6 +58,7 @@ public class registro extends AppCompatActivity {
     private String llaveCursor;
     private SQLiteDatabase db2;
     private ProgressDialog progressDialog;
+    EditText texto_email;
 
     //Firebase
 
@@ -95,6 +97,7 @@ public class registro extends AppCompatActivity {
         db = new BaseDatos(registro.this);
         db2 = new AyudaBD(this).getWritableDatabase();
         mGenero= (RadioGroup) findViewById(R.id.rd_genero);
+        texto_email = findViewById(R.id.txt_Correo2);
 
         //Obtener genero para FIREBASE
 
@@ -135,6 +138,18 @@ public class registro extends AppCompatActivity {
     }
 
 
+    private boolean esCorreoValido(String correo) {
+        if (!Patterns.EMAIL_ADDRESS.matcher(correo).matches()) {
+            texto_email.setError("Correo electrónico inválido");
+            return false;
+        } else {
+            texto_email.setError(null);
+        }
+
+        return true;
+    }
+
+
     private void registrarUsuario() {
 
 
@@ -144,6 +159,7 @@ public class registro extends AppCompatActivity {
         String pass = Password.getText().toString().trim();
         String numTel = Password.getText().toString().trim();
 
+        boolean c = esCorreoValido(correo);
         //Verificar cajas de texto
 
         if (TextUtils.isEmpty(usuario)) {
@@ -183,6 +199,16 @@ public class registro extends AppCompatActivity {
             Toast.makeText(this, "Se debe ingresar un Telefono", Toast.LENGTH_LONG).show();
             return;
         }
+
+        if (c) {
+            // OK, se pasa a la siguiente acción
+            // Toast.makeText(this, "correo valido", Toast.LENGTH_LONG).show();
+        }
+        else{
+            Toast.makeText(this, "correo no valido", Toast.LENGTH_LONG).show();
+        }
+
+
 
         progressDialog.setMessage("Realizando registro...");
         progressDialog.show();
