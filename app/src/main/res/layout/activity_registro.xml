@@ -221,6 +221,7 @@
             android:layout_height="32dp"
             android:layout_marginBottom="30dp"
             android:text="REGISTRARSE"
+            android:textStyle="bold"
             android:textColor="#FFFF"
             android:background="@drawable/boton_rojo"
             app:layout_constraintBottom_toBottomOf="parent"
