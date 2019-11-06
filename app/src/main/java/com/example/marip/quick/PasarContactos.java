@@ -19,7 +19,7 @@ public class PasarContactos extends AppCompatActivity {
         btnManual = (Button) findViewById(R.id.btnManual);
 
 
-        btnManual.setOnClickListener(new View.OnClickListener() {
+      /*  btnManual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent Contactos = new Intent(PasarContactos.this, contactos.class);
@@ -35,6 +35,7 @@ public class PasarContactos extends AppCompatActivity {
                 // finish(); //aqui*****
 
             }
-        });
+        }); */
+
     }
 }
