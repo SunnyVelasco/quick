@@ -17,9 +17,9 @@ public class PasarContactos extends AppCompatActivity {
         setContentView(R.layout.activity_pasar_contactos);
 
         btnManual = (Button) findViewById(R.id.btnManual);
+        btnAgenda = (Button) findViewById(R.id.btnAgenda);
 
-
-      /*  btnManual.setOnClickListener(new View.OnClickListener() {
+        btnManual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent Contactos = new Intent(PasarContactos.this, contactos.class);
@@ -27,15 +27,18 @@ public class PasarContactos extends AppCompatActivity {
             }
         });
 
-        btnAgenda = (Button) findViewById(R.id.botonAgenda);
+
         btnAgenda.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //seleccionarContacto();
-                // finish(); //aqui*****
+                Intent Contactos = new Intent(PasarContactos.this, AgregarDesdeAgenda.class);
+                startActivity(Contactos);
 
             }
-        }); */
+        });
+        /*
+
+        */
 
     }
 }

@@ -18,7 +18,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PasarContactos"></activity>
+        <activity android:name=".AgregarDesdeAgenda"></activity>
+        <activity android:name=".PasarContactos" />
         <activity android:name=".opciones_contacto" />
         <activity
             android:name=".bienvenida"
