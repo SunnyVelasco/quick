@@ -4,7 +4,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
 
-    <item android:title="Opciones">
+    <item android:title="">
         <menu>
             <item android:id="@+id/Agregar_servicio" android:title="CONTACTOS" android:icon="@drawable/contactos" ></item>
             <item android:id="@+id/Contactos_guardados" android:title="PERFIL" android:icon="@drawable/ajuste"></item>

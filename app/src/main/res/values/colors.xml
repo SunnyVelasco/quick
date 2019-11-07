@@ -5,10 +5,10 @@
     <color name="colorAccent">#E91E63</color>
     <color name="fondo1">#373435</color>
     <color name="fondo2">#293139</color>
-    <color name="Menu">#F8F8F8</color>
-    <color name="OpcionesMenu">#212121</color>
+    <color name="Menu">#181818</color>
+    <color name="OpcionesMenu">#FDFDFD</color>
     <color name="ColorText">#FFFFFF</color>
-    <color name="iconos">#212121</color>
+    <color name="iconos">#FFFFFF</color>
     <color name="negro">#080808</color>
     <color name="gris">#D7979494</color>
     <color name="rojo">#D7E00101</color>

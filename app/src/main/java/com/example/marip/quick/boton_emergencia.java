@@ -8,11 +8,12 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.location.Criteria;
 import android.location.Location;
-import android.location.LocationListener;
 import android.location.LocationManager;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.provider.Settings;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -31,11 +32,23 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationListener;
+import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-public class boton_emergencia extends AppCompatActivity {
+public class boton_emergencia extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
     public Button EnviarMensaje;
@@ -44,11 +57,35 @@ public class boton_emergencia extends AppCompatActivity {
     Thread hilo;
     BaseDatos db;
 
-    LocationManager locationManager;
+    FirebaseAuth auth;
+    GoogleApiClient client;
+    Location request;
+    static final int   REQUEST_LOCATION =1;
+    public DatabaseReference usuariobd;
+
+
+    private FusedLocationProviderClient fusedLocationClient;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+        //Activando el client de Google API
+
+        client = new GoogleApiClient.Builder(this)
+                .addConnectionCallbacks(this)
+                .addOnConnectionFailedListener(this)
+                .addApi(LocationServices.API)
+                .build();
+
+
+        usuariobd = FirebaseDatabase.getInstance().getReference("usuariobd");
+
+
+
 
         setContentView(R.layout.activity_boton_emergencia);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer);
@@ -67,6 +104,14 @@ public class boton_emergencia extends AppCompatActivity {
 
             }
         });
+
+
+
+
+
+
+
+
 
     }
 //el de volver atras
@@ -142,7 +187,7 @@ public class boton_emergencia extends AppCompatActivity {
         }
         int id = item.getItemId();
         if (id == R.id.Agregar_servicio){
-            Intent a = new Intent(boton_emergencia.this,PasarContactos.class);
+            Intent a = new Intent(boton_emergencia.this, PasarContactos.class);
             startActivity(a);
            // finish(); //aqui*****
         }
@@ -164,7 +209,102 @@ public class boton_emergencia extends AppCompatActivity {
     }
 
 
-   // @SuppressWarnings("StatementWithEmptyBody")
+    //GEOLOCALIZACION METODO
+    //PERMISOS DEL GPS
+
+    @Override
+    public void onConnected(@Nullable Bundle bundle) {
+
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+                    Manifest.permission.ACCESS_FINE_LOCATION)) {
+                // Aquí muestras confirmación explicativa al usuario
+                // por si rechazó los permisos anteriormente
+            } else {
+                ActivityCompat.requestPermissions(
+                        this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                        REQUEST_LOCATION);
+            }
+        } else {
+
+            request = LocationServices.FusedLocationApi.getLastLocation(client);
+            if (request != null) {
+                Log.e("Latitud:  ", +request.getLatitude()+ "Longitud:  "+request.getLongitude());
+
+            }
+
+            else{
+                Toast.makeText(this, "Ubicación no encontrada", Toast.LENGTH_LONG).show();
+            }
+
+
+        }
+    }
+
+    //PERMISOS DEL GPS
+    public void onRequestPermissionsResult(int requestCode,
+                                           String[] permissions,
+                                           int[] grantResults) {
+        if (requestCode == REQUEST_LOCATION) {
+            if(grantResults.length == 1
+                    && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+                request = LocationServices.FusedLocationApi.getLastLocation(client);
+                if (request != null) {
+                    Log.e("Latitud:  ", +request.getLatitude()+ "Longitud:  "+request.getLongitude());
+
+                    Map<String, Object> latLang = new HashMap<>();
+                    latLang.put("lat", request.getLatitude());
+                    latLang.put("lon", request.getLongitude());
+                    //usuariobd.child("Datos").child(id).setValue();
+                } else {
+                    Toast.makeText(this, "Ubicación no encontrada", Toast.LENGTH_LONG).show();
+                }
+            } else {
+                Toast.makeText(this, "Permisos no otorgados", Toast.LENGTH_LONG).show();
+            }
+        }
+    }
+
+
+
+
+
+    @Override
+    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+
+    }
+
+
+    @Override
+    public void onConnectionSuspended(int i) {
+
+    }
+
+    @Override
+    public void onLocationChanged(Location location) {
+
+    }
+
+
+    //CICLOS DE CONEXION DE LA API CLIENT
+    @Override
+    protected void onStart() {
+        super.onStart();
+        client.connect();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        client.disconnect();
+    }
+
+
+
+    // @SuppressWarnings("StatementWithEmptyBody")
   //  @Override
     /*
     public boolean onNavigationItemSelected(MenuItem item) {

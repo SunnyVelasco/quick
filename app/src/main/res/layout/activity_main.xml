@@ -112,11 +112,12 @@
         android:drawableStart="@drawable/candado"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.56"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Rd_Sesion"
-        tools:text="LOGIN" />
+        android:text="LOGIN" />
 
     <ImageView
         android:id="@+id/imageView12"

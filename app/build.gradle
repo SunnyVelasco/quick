@@ -30,8 +30,9 @@ dependencies {
     implementation 'com.android.support.constraint:constraint-layout:1.1.2'
     implementation 'com.google.firebase:firebase-database:16.0.4'
     implementation 'com.facebook.android:facebook-android-sdk:[4,5)'
-    // implementation 'com.google.android.gms:play-services-auth:16.0.0'
+    //implementation 'com.google.android.gms:play-services-auth:16.0.0'
     implementation 'com.google.android.gms:play-services-auth:16.0.0'
+    implementation 'com.google.android.gms:play-services-location:16.0.0'
     testImplementation 'junit:junit:4.12'
     //noinspection GradleCompatible
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
@@ -43,6 +44,7 @@ dependencies {
 
     //noinspection GradleCompatible
     implementation 'com.android.support:design:27.1.1'
+
 
 }
 apply plugin: 'com.google.gms.google-services'
