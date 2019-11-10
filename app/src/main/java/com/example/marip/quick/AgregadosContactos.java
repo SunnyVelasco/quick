@@ -159,8 +159,5 @@ public class AgregadosContactos extends AppCompatActivity {
                 })
                 .show();
 
-
-
-
     }
 }

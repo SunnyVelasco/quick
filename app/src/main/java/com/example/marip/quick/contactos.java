@@ -46,7 +46,7 @@ public class contactos extends AppCompatActivity {
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent Regresar = new Intent(contactos.this, boton_emergencia.class);
+                Intent Regresar = new Intent(contactos.this, PasarContactos.class);
                 startActivity(Regresar);
                // finish(); //aqui*****
             }
