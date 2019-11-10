@@ -109,6 +109,7 @@ public class registro extends AppCompatActivity {
                 switch (i){
                     case R.id.rd_hombre:
                         tipo = genero.getText().toString();
+
                         break;
 
                     case R.id.rd_mujer:
@@ -252,7 +253,7 @@ public class registro extends AppCompatActivity {
         if (!TextUtils.isEmpty(usuario)){
 
             String id = usuariobd.push().getKey();
-            usuariobd datos = new usuariobd(id,usuario, correo, cp, numTel, pass,tipo, "na", "na");
+            usuariobd datos = new usuariobd(id,usuario, correo, cp, numTel, pass,tipo);
             usuariobd.child("Datos").child(id).setValue(datos);
             Toast.makeText(this, "Usuario registrado", Toast.LENGTH_SHORT).show();
 
