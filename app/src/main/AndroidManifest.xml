@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.marip.quick">
+    package="apps.ejemplo.marip.quick">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -20,11 +20,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AgregarDesdeAgenda"></activity>
-        <activity android:name=".PasarContactos" />
-        <activity android:name=".opciones_contacto" />
+        <activity android:name="apps.ejemplo.marip.quick.AgregarDesdeAgenda"></activity>
+        <activity android:name="apps.ejemplo.marip.quick.PasarContactos" />
+        <activity android:name="apps.ejemplo.marip.quick.opciones_contacto" />
         <activity
-            android:name=".bienvenida"
+            android:name="apps.ejemplo.marip.quick.bienvenida"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,44 +32,23 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
-        <activity android:name=".registro" />
-        <activity android:name=".boton_emergencia" />
-        <activity android:name=".menu" />
+        <activity android:name="apps.ejemplo.marip.quick.MainActivity" />
+        <activity android:name="apps.ejemplo.marip.quick.registro" />
+        <activity android:name="apps.ejemplo.marip.quick.boton_emergencia" />
+        <activity android:name="apps.ejemplo.marip.quick.menu" />
         <activity
-            android:name=".ejem"
+            android:name="apps.ejemplo.marip.quick.ejem"
             android:label="@string/title_activity_ejem"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".contactos" />
+        <activity android:name="apps.ejemplo.marip.quick.contactos" />
         <activity
-            android:name=".Main2Activity"
+            android:name="apps.ejemplo.marip.quick.Main2Activity"
             android:label="@string/title_activity_main2"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".AgregadosContactos"
+            android:name="apps.ejemplo.marip.quick.AgregadosContactos"
             android:label="@string/title_activity_agregados_contactos"
             android:theme="@style/AppTheme.NoActionBar" />
-
-        <meta-data
-            android:name="com.facebook.sdk.ApplicationId"
-            android:value="@string/facebook_app_id" />
-
-        <activity
-            android:name="com.facebook.FacebookActivity"
-            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
-            android:label="@string/app_name" />
-        <activity
-            android:name="com.facebook.CustomTabActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-
-                <data android:scheme="@string/fb_login_protocol_scheme" />
-            </intent-filter>
-        </activity>
     </application>
 
 </manifest>

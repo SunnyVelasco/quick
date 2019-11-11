@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".ejem"
+    tools:context="apps.ejemplo.marip.quick.ejem"
     tools:showIn="@layout/app_bar_ejem">
 
 </android.support.constraint.ConstraintLayout>

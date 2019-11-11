@@ -1,4 +1,4 @@
-package com.example.marip.quick;
+package apps.ejemplo.marip.quick;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

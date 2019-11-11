@@ -1,4 +1,4 @@
-package com.example.marip.quick;
+package apps.ejemplo.marip.quick;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -12,6 +12,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import apps.ejemplo.marip.quick.R;
 
 public class ejem extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {

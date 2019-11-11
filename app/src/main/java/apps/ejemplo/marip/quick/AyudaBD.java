@@ -1,13 +1,8 @@
-package com.example.marip.quick;;
+package apps.ejemplo.marip.quick;;
 
 import android.content.Context;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
-import com.example.marip.quick.BaseDatos;
-
-import java.util.ArrayList;
 
 /**
  * Created by Jorge & alonso :v on 02/05/2017.

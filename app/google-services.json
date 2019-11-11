@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "869150852282",
+    "firebase_url": "https://quick-201909.firebaseio.com",
+    "project_id": "quick-201909",
+    "storage_bucket": "quick-201909.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:869150852282:android:257abcf9975630309dae83",
+        "android_client_info": {
+          "package_name": "apps.ejemplo.marip.quick"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "869150852282-i3iv9dk739iu7nfbhrtaspe9bioaehe2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "apps.ejemplo.marip.quick",
+            "certificate_hash": "aabdb08d3c55b607137fcdc40ee4bf1862b43fa6"
+          }
+        },
+        {
+          "client_id": "869150852282-09cgka4aa1pk3e63m8kvssobk3s7fn94.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-uXDn1IGRubTVrKA1_hCgdJJB496IRRo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "869150852282-09cgka4aa1pk3e63m8kvssobk3s7fn94.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

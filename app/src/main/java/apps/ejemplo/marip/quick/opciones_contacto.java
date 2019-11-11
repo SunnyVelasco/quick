@@ -1,7 +1,9 @@
-package com.example.marip.quick;
+package apps.ejemplo.marip.quick;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import apps.ejemplo.marip.quick.R;
 
 public class opciones_contacto extends AppCompatActivity {
 
