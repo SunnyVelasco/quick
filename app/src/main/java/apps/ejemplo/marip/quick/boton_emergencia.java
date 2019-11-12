@@ -33,6 +33,7 @@ import com.google.android.gms.location.LocationServices;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.core.Tag;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -46,6 +47,9 @@ public class boton_emergencia extends AppCompatActivity implements GoogleApiClie
     Thread hilo;
     BaseDatos db;
 
+    double dato1, dato2;
+    String direccion,direccion2, coma=",";
+
     FirebaseAuth auth;
     GoogleApiClient client;
     Location request;
@@ -54,6 +58,7 @@ public class boton_emergencia extends AppCompatActivity implements GoogleApiClie
 
 
     private FusedLocationProviderClient fusedLocationClient;
+
 
 
 
@@ -71,7 +76,7 @@ public class boton_emergencia extends AppCompatActivity implements GoogleApiClie
                 .build();
 
 
-        usuariobd = FirebaseDatabase.getInstance().getReference("usuariobd");
+
 
 
 
@@ -90,6 +95,7 @@ public class boton_emergencia extends AppCompatActivity implements GoogleApiClie
             @Override
             public void onClick(View v) {
                 MandarMensajes();
+                getLastLocation();
 
             }
         });
@@ -140,8 +146,7 @@ public class boton_emergencia extends AppCompatActivity implements GoogleApiClie
     }
 
     public void EnviarMensaje(String numTel) {
-        //String numTel = txtNum.getText().toString();
-        String direccion="";
+        //String numTel = txtNum.getText().toString()
 
 
         try {
@@ -155,7 +160,7 @@ public class boton_emergencia extends AppCompatActivity implements GoogleApiClie
             }
             SmsManager sms= SmsManager.getDefault();
 
-            sms.sendTextMessage(numTel, null, "Necesito ayuda. Ubicacion: "+direccion,null,null);
+            sms.sendTextMessage(numTel, null, "Necesito ayuda. Ubicacion: https://www.google.com.mx/maps/search/"+direccion+coma+direccion2,null,null);
             Toast.makeText(getApplicationContext(),"Mensaje Enviado",Toast.LENGTH_LONG).show();
         }
         catch (Exception e)
@@ -201,6 +206,11 @@ public class boton_emergencia extends AppCompatActivity implements GoogleApiClie
     //GEOLOCALIZACION METODO
     //PERMISOS DEL GPS
 
+
+
+
+
+
     @Override
     public void onConnected(@Nullable Bundle bundle) {
 
@@ -220,7 +230,10 @@ public class boton_emergencia extends AppCompatActivity implements GoogleApiClie
 
             request = LocationServices.FusedLocationApi.getLastLocation(client);
             if (request != null) {
-                Log.e("Latitud:  ", +request.getLatitude()+ "Longitud:  "+request.getLongitude());
+                dato1=request.getLatitude();
+                dato2=request.getLongitude();
+                direccion= Double.toString(dato1);
+                direccion2= Double.toString(dato2);
 
             }
 
@@ -242,12 +255,10 @@ public class boton_emergencia extends AppCompatActivity implements GoogleApiClie
 
                 request = LocationServices.FusedLocationApi.getLastLocation(client);
                 if (request != null) {
-                    Log.e("Latitud:  ", +request.getLatitude()+ "Longitud:  "+request.getLongitude());
-
-                    Map<String, Object> latLang = new HashMap<>();
-                    latLang.put("lat", request.getLatitude());
-                    latLang.put("lon", request.getLongitude());
-                    //usuariobd.child("Datos").child(id).setValue();
+                    dato1=request.getLatitude();
+                    dato2=request.getLongitude();
+                    direccion= Double.toString(dato1);
+                    direccion2= Double.toString(dato2);
                 } else {
                     Toast.makeText(this, "Ubicación no encontrada", Toast.LENGTH_LONG).show();
                 }
@@ -255,6 +266,39 @@ public class boton_emergencia extends AppCompatActivity implements GoogleApiClie
                 Toast.makeText(this, "Permisos no otorgados", Toast.LENGTH_LONG).show();
             }
         }
+    }
+    private void getLastLocation() {
+        if (isLocationPermissionGranted()) {
+            request = LocationServices.FusedLocationApi.getLastLocation(client);
+        } else {
+            manageDeniedPermission();
+        }
+    }
+
+    private boolean isLocationPermissionGranted() {
+        int permission = ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_FINE_LOCATION);
+        return permission == PackageManager.PERMISSION_GRANTED;
+    }
+
+    private void manageDeniedPermission() {
+        if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+                Manifest.permission.ACCESS_FINE_LOCATION)) {
+            // Aquí muestras confirmación explicativa al usuario
+            // por si rechazó los permisos anteriormente
+        } else {
+            ActivityCompat.requestPermissions(
+                    this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                    REQUEST_LOCATION);
+        }
+    }
+
+
+
+    private void updateLocationUI() {
+        request.getLatitude();
+        request.getLongitude();
     }
 
 
@@ -274,6 +318,9 @@ public class boton_emergencia extends AppCompatActivity implements GoogleApiClie
 
     @Override
     public void onLocationChanged(Location location) {
+        Log.d("Nueva ubicación: "," "+ location.getLatitude()+location.getLongitude());
+        request = location;
+        updateLocationUI();
 
     }
 
@@ -290,6 +337,16 @@ public class boton_emergencia extends AppCompatActivity implements GoogleApiClie
         super.onStop();
         client.disconnect();
     }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (client.isConnected()) {
+            //stopLocationUpdates();
+        }
+    }
+
+
 
 
 
