@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.location.Location;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
@@ -41,12 +42,14 @@ import java.util.Map;
 public class boton_emergencia extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
-    public Button EnviarMensaje;
+    public Button EnviarMensaje,bt2;
     public EditText txtNum, txt_Men;
     public Cursor listaContactos;
     Thread hilo;
     BaseDatos db;
+    Handler handler = new Handler();
 
+    private final int TIEMPO = 60000;
     double dato1, dato2;
     String direccion,direccion2, coma=",";
 
@@ -85,6 +88,7 @@ public class boton_emergencia extends AppCompatActivity implements GoogleApiClie
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer);
         db = new BaseDatos(boton_emergencia.this);
         EnviarMensaje = (Button) findViewById(R.id.btn_ayuda);
+        bt2 = (Button) findViewById(R.id.button);
         mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.Open, R.string.Close);
         mDrawerLayout.addDrawerListener(mToggle);
         mToggle.syncState();
@@ -94,8 +98,10 @@ public class boton_emergencia extends AppCompatActivity implements GoogleApiClie
         EnviarMensaje.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MandarMensajes();
-                getLastLocation();
+
+              MandarMensajes();
+              getLastLocation();
+              ejecutarTarea();
 
             }
         });
@@ -103,11 +109,43 @@ public class boton_emergencia extends AppCompatActivity implements GoogleApiClie
 
 
 
+bt2.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        stopHandler();
+        Toast.makeText(getApplicationContext(), "detener", Toast.LENGTH_LONG).show();
+    }
+});
 
 
 
 
+    }
 
+    public void onMapReady() {
+
+        ejecutarTarea();
+
+    }
+
+    public void ejecutarTarea() {
+        handler.postDelayed(new Runnable() {
+            public void run() {
+
+                // función a ejecutar
+                //actualizarChofer(); // función para refrescar la ubicación del conductor, creada en otra línea de código
+                MandarMensajes();
+                getLastLocation();
+
+                handler.postDelayed(this, TIEMPO);
+            }
+
+        }, TIEMPO);
+
+    }
+
+    public void stopHandler() {
+        handler.removeMessages(0);
     }
 //el de volver atras
 @Override public boolean onKeyDown(int keyCode, KeyEvent event) { if(keyCode==KeyEvent.KEYCODE_BACK) { return false; } return super.onKeyDown(keyCode, event); }
