@@ -88,7 +88,6 @@ public class boton_emergencia extends AppCompatActivity implements GoogleApiClie
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer);
         db = new BaseDatos(boton_emergencia.this);
         EnviarMensaje = (Button) findViewById(R.id.btn_ayuda);
-        bt2 = (Button) findViewById(R.id.button);
         mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.Open, R.string.Close);
         mDrawerLayout.addDrawerListener(mToggle);
         mToggle.syncState();
