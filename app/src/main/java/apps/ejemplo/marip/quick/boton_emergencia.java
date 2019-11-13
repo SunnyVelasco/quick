@@ -99,8 +99,8 @@ public class boton_emergencia extends AppCompatActivity implements GoogleApiClie
             @Override
             public void onClick(View v) {
 
-              MandarMensajes();
-              getLastLocation();
+              //MandarMensajes();
+              //getLastLocation();
               ejecutarTarea();
 
             }

@@ -38,8 +38,8 @@
 
         <Button
             android:id="@+id/btn_ayuda"
-            android:layout_width="160dp"
-            android:layout_height="107dp"
+            android:layout_width="184dp"
+            android:layout_height="164dp"
 
             android:layout_marginTop="336dp"
             android:background="@drawable/boton2n"
@@ -59,9 +59,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
-            android:text="Button"
+            android:background="@drawable/boton_estilo"
+            android:text="DETENER ALERTA"
             app:layout_constraintTop_toBottomOf="@+id/btn_ayuda"
-            tools:layout_editor_absoluteX="161dp" />
+            tools:layout_editor_absoluteX="147dp" />
 
 
     </android.support.constraint.ConstraintLayout>

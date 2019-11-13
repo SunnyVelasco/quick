@@ -145,6 +145,8 @@ public class registro extends AppCompatActivity {
 
         if (TextUtils.isEmpty(usuario)) {
 
+
+
             Toast.makeText(this, "Se debe ingresar un usuario", Toast.LENGTH_LONG).show();
             return;
         }
@@ -238,12 +240,14 @@ public class registro extends AppCompatActivity {
             Toast.makeText(this, "Usuario registrado", Toast.LENGTH_SHORT).show();
 
         }else {
+            Usuario.setError("Verifique usuario");
             Toast.makeText(this, "Verifique los datos", Toast.LENGTH_SHORT).show();
 
 
         }
 
         if (TextUtils.isEmpty(correo)) {
+            Correo.setError("Verifique el correo");
 
             Toast.makeText(this, "Se debe ingresar un correo", Toast.LENGTH_LONG).show();
             return;
@@ -251,22 +255,30 @@ public class registro extends AppCompatActivity {
 
         if (TextUtils.isEmpty(cp)) {
 
+            Cp.setError("Ingrese un codigo postal");
+
             Toast.makeText(this, "Se debe ingresar un Codigo Postal", Toast.LENGTH_LONG).show();
             return;
         }
 
         if (TextUtils.isEmpty(pass ) || pass.length()<=6) {
 
+            Password.setError("Verifique contraseña");
+
             Toast.makeText(this, "Se debe ingresar una Contraseña de 7 CARACTERES", Toast.LENGTH_LONG).show();
             return;
         }
         if (TextUtils.isEmpty(numTel)) {
+
+            Telefono.setError("Verifique telefono");
 
             Toast.makeText(this, "Se debe ingresar un Telefono", Toast.LENGTH_LONG).show();
             return;
         }
 
         if(TextUtils.isEmpty(tipo)){
+
+            genero.setError("Seleccione un GÉNERO");
 
             Toast.makeText(this, "Debe seleccionar un genero", Toast.LENGTH_LONG).show();
             return;
