@@ -99,9 +99,7 @@ public class boton_emergencia extends AppCompatActivity implements GoogleApiClie
             @Override
             public void onClick(View v) {
 
-              //MandarMensajes();
-              //getLastLocation();
-              ejecutarTarea();
+              MandarMensajes();
 
             }
         });
@@ -109,40 +107,9 @@ public class boton_emergencia extends AppCompatActivity implements GoogleApiClie
 
 
 
-bt2.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View v) {
-        stopHandler();
-        Toast.makeText(getApplicationContext(), "detener", Toast.LENGTH_LONG).show();
-    }
-});
-
-
-
 
     }
 
-    public void onMapReady() {
-
-        ejecutarTarea();
-
-    }
-
-    public void ejecutarTarea() {
-        handler.postDelayed(new Runnable() {
-            public void run() {
-
-                // función a ejecutar
-                //actualizarChofer(); // función para refrescar la ubicación del conductor, creada en otra línea de código
-                MandarMensajes();
-                getLastLocation();
-
-                handler.postDelayed(this, TIEMPO);
-            }
-
-        }, TIEMPO);
-
-    }
 
     public void stopHandler() {
         handler.removeMessages(0);
